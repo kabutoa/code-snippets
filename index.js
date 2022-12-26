@@ -17,4 +17,4 @@ round(1.345, 1)                 // 1.3
 const addZero = (num, len = 2) => (`0${num}`).slice(-len)
 const addZero = (num, len = 2) => (`${num}`).padStart(len, '0')
 addZero(3)      // 03
-addZero2(32,4)  // 0032
+addZero(32,4)   // 0032
