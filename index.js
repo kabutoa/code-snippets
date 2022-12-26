@@ -31,3 +31,18 @@ const getSameCount = (arr) => {
   }, [])
 }
 getSameCount(['BMW','Benz', 'Benz', 'Tesla', 'BMW', 'Toyota']) // [ BMW: 2, Benz: 2, Tesla: 1, Toyota: 1 ]
+
+/**
+ * 将数组平铺到指定深度
+ * @param {Array} arr 原数组
+ * @param {Number} depth 深度
+ * @returns {Array}
+ */
+const flatten = (arr, depth = 1) =>
+  depth != 1
+    ? arr.reduce((a, v) => a.concat(Array.isArray(v) ? flatten(v, depth - 1) : v), [])
+    : arr.reduce((a, v) => a.concat(v), []);
+flatten([1, [2], 3, 4]);                            // [1, 2, 3, 4]
+flatten([1, [2, [3, [4, 5], 6], 7], 8], 2);         // [1, 2, 3, [4, 5], 6, 7, 8]
+
+
